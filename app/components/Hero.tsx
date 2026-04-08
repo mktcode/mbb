@@ -4,10 +4,10 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 
 const HERO_IMAGES = [
-  "/header1.png",
-  "/header4.png",
-  "/header2.png",
-  "/header3.png",
+  "/mbb/header1.png",
+  "/mbb/header4.png",
+  "/mbb/header2.png",
+  "/mbb/header3.png",
 ];
 
 export default function MetallbauMeyerHero() {
