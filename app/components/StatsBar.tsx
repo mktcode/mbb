@@ -8,7 +8,14 @@ const STATS = [
   { end: 100, suffix: "%", label: "Qualitätsgarantie" },
 ];
 
-const BADGES = ["IHK Mitglied", "Meisterbetrieb"];
+// const BADGES = ["IHK Mitglied", "Meisterbetrieb"];
+const BADGES = [{
+  label: "IHK Mitglied",
+  since: 1998,
+}, {
+  label: "Meisterbetrieb",
+  since: 2005,
+}];
 
 function useCountUp(end: number, duration = 1800, started = false) {
   const [value, setValue] = useState(0);
@@ -88,7 +95,7 @@ export default function StatsBar() {
 
         {/* Badges */}
         <div
-          className="flex md:flex-col gap-3 transition-all duration-700"
+          className="flex gap-8 transition-all duration-700"
           style={{
             transitionDelay: "350ms",
             opacity: started ? 1 : 0,
@@ -96,12 +103,20 @@ export default function StatsBar() {
           }}
         >
           {BADGES.map((b) => (
-            <span
-              key={b}
-              className="text-sm text-center font-medium text-gray-400 uppercase tracking-[0.08em] px-3.5 py-2 rounded-md bg-gray-50"
-            >
-              {b}
-            </span>
+            <div key={b.label} className="flex flex-col items-center gap-2">
+              <span
+                key={b.label}
+                className="font-work-sans font-extrabold tracking-tight text-[#0d1117] leading-none z-10"
+                // style={{ fontSize: "clamp(2.2rem, 4vw, 3rem)" }}
+                style={{ fontSize: "clamp(1.3rem, 3vw, 1.8rem)" }}
+              >
+                {b.label}
+              </span>
+
+              <span className="mt-2 text-[0.7rem] font-medium text-gray-400 uppercase tracking-[0.1em]">
+                Seit {b.since}
+              </span>
+            </div>
           ))}
         </div>
 
