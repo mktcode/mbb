@@ -4,9 +4,25 @@ import { useEffect, useState } from "react";
 
 export default function MetallbauMeyerHero() {
   const [mounted, setMounted] = useState(false);
+  const [bgIndex, setBgIndex] = useState(0);
+
+  const images = [
+    "/header1.png",
+    "/header2.png",
+    "/header3.png",
+    "/header4.png",
+  ];
 
   useEffect(() => {
     setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setBgIndex((prev) => (prev + 1) % images.length);
+    }, 5000);
+
+    return () => clearInterval(interval);
   }, []);
 
   const fadeUp = (delay: string) =>
@@ -23,17 +39,22 @@ export default function MetallbauMeyerHero() {
     <div className="relative min-h-screen w-full overflow-hidden bg-[#0d1117]">
 
       {/* ── Fullscreen background image ── */}
-      <div
-        className="absolute inset-0 bg-cover bg-center scale-[1.03]"
-        style={{
-          backgroundImage:
-            "url('/header1.png')",
-          backgroundPosition: "center 40%",
-        }}
-      />
+      {images.map((img, i) => (
+        <div
+          key={img}
+          className={`absolute inset-0 bg-cover bg-center scale-[1.03] transition-opacity duration-1000 saturate-150 ${
+            i === bgIndex ? "opacity-100" : "opacity-0"
+          }`}
+          style={{
+            backgroundImage: `url('${img}')`,
+            backgroundPosition: "center 40%",
+          }}
+        />
+      ))}
 
       {/* ── Gradient overlay: strong left, fading right ── */}
       <div className="absolute inset-0 bg-gradient-to-r from-white via-white/30  to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-r from-white via-transparent  to-transparent" />
 
       {/* ── Navbar ── */}
       <nav className="absolute top-0 inset-x-0 z-20 flex items-center justify-between px-[5vw] h-[68px] bg-white/80 backdrop-blur-sm">
