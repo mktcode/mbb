@@ -8,6 +8,7 @@ import Gallery from "./components/Gallery";
 import Production from "./components/Production";
 import Team from "./components/Team";
 import ContactMap from "./components/ContactMap";
+import Footer from "./components/Footer";
 
 const workSans = Work_Sans({
   variable: "--font-work-sans",
@@ -47,6 +48,7 @@ export default function RootLayout({
         <Production />
         <Team />
         <ContactMap />
+        <Footer />
         {children}
       </body>
     </html>
