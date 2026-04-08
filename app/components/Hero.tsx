@@ -1,12 +1,13 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useState } from "react";
 
 const HERO_IMAGES = [
   "/header1.png",
+  "/header4.png",
   "/header2.png",
   "/header3.png",
-  "/header4.png",
 ];
 
 export default function MetallbauMeyerHero() {
@@ -61,19 +62,10 @@ export default function MetallbauMeyerHero() {
       <div className="absolute inset-0 bg-linear-to-r from-white via-transparent  to-transparent" />
 
       {/* ── Navbar ── */}
-      <nav className="absolute top-0 inset-x-0 z-20 flex h-17 items-center justify-between gap-8 bg-white/90 px-[5vw] backdrop-blur-sm">
+      <nav className="absolute top-0 inset-x-0 z-20 flex h-19 items-center justify-between gap-8 bg-white/90 px-[5vw] backdrop-blur-sm">
         {/* Logo */}
-        <div className="flex items-center gap-2.5">
-          <div className="flex h-7.5 w-7.5 shrink-0 items-center justify-center rounded-md bg-[#003d7c]">
-            <svg width="16" height="16" viewBox="0 0 20 20" fill="none">
-              <rect x="2" y="10" width="4" height="8" fill="white" opacity="0.8" />
-              <rect x="8" y="5" width="4" height="13" fill="white" opacity="0.9" />
-              <rect x="14" y="2" width="4" height="16" fill="white" />
-            </svg>
-          </div>
-          <span className="font-semibold text-[0.92rem] text-[#0d1117] tracking-tight">
-            Metallbau Meyer
-          </span>
+        <div className="flex items-center">
+          <Image src="/logo.png" alt="M" width={140} height={68} />
         </div>
 
         {/* Links */}

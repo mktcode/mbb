@@ -76,7 +76,7 @@ export default function StatsBar() {
   }, []);
 
   return (
-    <div ref={ref} className="mx-auto w-full max-w-7xl px-[5vw] py-24">
+    <div ref={ref} className="mx-auto w-full max-w-7xl px-[4vw] py-24">
       <div className="flex flex-wrap items-end justify-between gap-12">
 
         {/* Stats */}
@@ -108,7 +108,7 @@ export default function StatsBar() {
                 key={b.label}
                 className="font-work-sans font-extrabold tracking-tight text-[#0d1117] leading-none z-10"
                 // style={{ fontSize: "clamp(2.2rem, 4vw, 3rem)" }}
-                style={{ fontSize: "clamp(1.3rem, 3vw, 1.8rem)" }}
+                style={{ fontSize: "clamp(1.3rem, 3vw, 1.7rem)" }}
               >
                 {b.label}
               </span>
