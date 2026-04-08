@@ -170,7 +170,11 @@ export default function Gallery2() {
             style={{ height: 400 }}
             onClick={() => setActive(i)}
           >
-            <Image src={img.src} alt={img.title} />
+            <Image
+              src={img.src} alt={img.title}
+              width={800}
+              height={600}
+            />
           </div>
         ))}
       </div>
@@ -188,8 +192,9 @@ export default function Gallery2() {
               <Image
                 src={IMAGES[active].src}
                 alt={IMAGES[active].title}
-                className="w-full object-cover"
-                style={{ maxHeight: "90vh", display: "block" }}
+                className="w-full h-auto object-cover"
+                style={{ maxHeight: "90vh" }}
+                width={800} height={600}
               />
 
               <div

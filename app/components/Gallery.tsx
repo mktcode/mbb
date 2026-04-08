@@ -137,7 +137,7 @@ export default function Gallery() {
             style={{ height: 400 }}
             onClick={() => setActive(i)}
           >
-            <Image src={img.src} alt={img.title} />
+            <Image src={img.src} alt={img.title} width={400} height={400} />
           </div>
         ))}
       </div>
