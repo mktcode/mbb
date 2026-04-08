@@ -19,6 +19,9 @@
 
 # production
 /build
+server
+server.exe
+server-entry.js.map
 
 # misc
 .DS_Store
