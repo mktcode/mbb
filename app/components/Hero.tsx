@@ -27,18 +27,16 @@ export default function MetallbauMeyerHero() {
         className="absolute inset-0 bg-cover bg-center scale-[1.03]"
         style={{
           backgroundImage:
-            "url('/header2.png')",
+            "url('/header1.png')",
           backgroundPosition: "center 40%",
         }}
       />
 
       {/* ── Gradient overlay: strong left, fading right ── */}
-      <div className="absolute inset-0 bg-gradient-to-r from-white via-white/75  to-transparent" />
-      {/* ── Bottom fade for stats legibility ── */}
-      <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-white/60 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-r from-white via-white/30  to-transparent" />
 
       {/* ── Navbar ── */}
-      <nav className="absolute top-0 inset-x-0 z-20 flex items-center justify-between px-[5vw] h-[68px] bg-white/60 backdrop-blur-sm">
+      <nav className="absolute top-0 inset-x-0 z-20 flex items-center justify-between px-[5vw] h-[68px] bg-white/80 backdrop-blur-sm">
         {/* Logo */}
         <div className="flex items-center gap-2.5">
           <div className="w-[30px] h-[30px] bg-[#003d7c] rounded-[6px] flex items-center justify-center flex-shrink-0">
