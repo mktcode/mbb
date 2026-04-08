@@ -14,6 +14,11 @@ export default function MetallbauMeyerHero() {
       mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
     }`;
 
+  const fadeRight = (delay: string) =>
+    `transition-all duration-700 ${delay} ${
+      mounted ? "opacity-100 translate-x-0" : "opacity-0 translate-x-6"
+    }`;
+
   return (
     <div className="relative min-h-screen w-full overflow-hidden bg-[#0d1117]">
 
@@ -74,7 +79,7 @@ export default function MetallbauMeyerHero() {
       <div className="relative z-10 flex flex-col justify-center min-h-screen px-[5vw] max-w-3xl">
 
         {/* Eyebrow */}
-        <div className={`${fadeUp("delay-100")} mb-7`}>
+        <div className={`${fadeUp("delay-500")} mb-7`}>
           <span className="inline-flex items-center gap-1.5 bg-[#003d7c]/10 text-[#003d7c] text-[0.72rem] font-medium tracking-[0.04em] px-3 py-1.5 rounded-full">
             <span className="w-1.5 h-1.5 rounded-full bg-[#003d7c]" />
             Metallbau &amp; Stahlkonstruktion · Osnabrück
@@ -83,20 +88,18 @@ export default function MetallbauMeyerHero() {
 
         {/* Headline */}
         <h1
-          className={`${fadeUp(
-            "delay-200"
-          )} font-work-sans font-extrabold leading-[1.04] tracking-[-0.025em] text-[#0d1117] mb-6`}
+          className={`font-work-sans font-extrabold leading-[1.04] tracking-[-0.025em] text-[#0d1117] mb-6`}
           style={{ fontSize: "clamp(3rem, 6vw, 5.4rem)" }}
         >
-          Persönlich.<br />
-          Kompetent.<br />
-          <span className="text-[#0061a5] italic">Sicher.</span>
+          <span className={`${fadeRight("delay-200")} block`}>Persönlich.</span>
+          <span className={`${fadeRight("delay-300")} block`}>Kompetent.</span>
+          <span className={`${fadeRight("delay-400")} block text-[#0061a5] italic`}>Sicher.</span>
         </h1>
 
         {/* Sub */}
         <p
           className={`${fadeUp(
-            "delay-300"
+            "delay-600"
           )} text-gray-500 font-normal leading-relaxed mb-10 max-w-[400px]`}
           style={{ fontSize: "clamp(1rem, 1.8vw, 1.15rem)" }}
         >
@@ -104,7 +107,7 @@ export default function MetallbauMeyerHero() {
         </p>
 
         {/* CTAs */}
-        <div className={`${fadeUp("delay-[460ms]")} flex flex-wrap items-center gap-3 mb-12`}>
+        <div className={`${fadeUp("delay-[700ms]")} flex flex-wrap items-center gap-3 mb-12`}>
           <a
             href="#"
             className="inline-flex items-center gap-2 bg-[#003d7c] hover:bg-[#002d5e] active:-translate-y-0 hover:-translate-y-px text-white text-[0.88rem] font-medium px-7 py-3.5 rounded-lg no-underline transition-all duration-200"
@@ -123,7 +126,7 @@ export default function MetallbauMeyerHero() {
         </div>
 
         {/* Checklist */}
-        <div className={`${fadeUp("delay-[580ms]")} flex flex-col gap-2.5`}>
+        <div className={`${fadeUp("delay-[820ms]")} flex flex-col gap-2.5`}>
           {[
             "Zertifiziert nach DIN EN 1090",
             "Über 25 Jahre Erfahrung im Metallbau",
