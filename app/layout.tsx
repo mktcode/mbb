@@ -4,6 +4,7 @@ import "./globals.css";
 import Hero from "./components/Hero";
 import StatsBar from "./components/StatsBar";
 import About from "./components/About";
+import Gallery from "./components/Gallery";
 
 const workSans = Work_Sans({
   variable: "--font-work-sans",
@@ -39,6 +40,7 @@ export default function RootLayout({
         <Hero />
         <StatsBar />
         <About />
+        <Gallery />
         {children}
       </body>
     </html>

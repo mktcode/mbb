@@ -41,7 +41,7 @@ const IMAGES = [
   },
 ];
 
-export default function ImageGallery() {
+export default function Gallery() {
   const [active, setActive] = useState(null);
 
   // Lock body scroll when modal is open
@@ -112,7 +112,7 @@ export default function ImageGallery() {
         className="w-full grid"
         style={{
           gridTemplateColumns: "repeat(3, 1fr)",
-          gridTemplateRows: "repeat(2, 280px)",
+          gridTemplateRows: "repeat(2, 400px)",
           gap: 0,
         }}
       >
@@ -120,7 +120,7 @@ export default function ImageGallery() {
           <div
             key={i}
             className="img-cell"
-            style={{ height: 280 }}
+            style={{ height: 400 }}
             onClick={() => setActive(i)}
           >
             <img src={img.src} alt={img.title} />

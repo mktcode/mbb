@@ -28,7 +28,7 @@ export default function MetallbauMeyerHero() {
       />
 
       {/* ── Gradient overlay: strong left, fading right ── */}
-      <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/75 to-white/10" />
+      <div className="absolute inset-0 bg-gradient-to-r from-white via-white/75  to-transparent" />
       {/* ── Bottom fade for stats legibility ── */}
       <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-white/60 to-transparent" />
 
