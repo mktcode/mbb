@@ -53,7 +53,7 @@ function StatItem({ end, suffix, label, started, delay }: { end: number; suffix:
         style={{ fontSize: "clamp(2.2rem, 4vw, 3rem)" }}>
         {value}{suffix}
       </span>
-      <span className="mt-2 text-[0.7rem] font-medium text-gray-400 uppercase tracking-[0.1em]">
+      <span className="mt-2 text-[0.7rem] font-medium text-gray-400 uppercase tracking-widest">
         {label}
       </span>
     </div>
@@ -76,7 +76,7 @@ export default function StatsBar() {
   }, []);
 
   return (
-    <div ref={ref} className="w-full max-w-screen-xl mx-auto px-[5vw] py-24">
+    <div ref={ref} className="mx-auto w-full max-w-7xl px-[5vw] py-24">
       <div className="flex flex-wrap items-end justify-between gap-12">
 
         {/* Stats */}
@@ -113,7 +113,7 @@ export default function StatsBar() {
                 {b.label}
               </span>
 
-              <span className="mt-2 text-[0.7rem] font-medium text-gray-400 uppercase tracking-[0.1em]">
+              <span className="mt-2 text-[0.7rem] font-medium text-gray-400 uppercase tracking-widest">
                 Seit {b.since}
               </span>
             </div>

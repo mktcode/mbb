@@ -79,7 +79,7 @@ const IMAGES = [
 ];
 
 export default function Gallery2() {
-  const [active, setActive] = useState(null);
+  const [active, setActive] = useState<number | null>(null);
 
   useEffect(() => {
     if (active !== null) {
@@ -91,13 +91,26 @@ export default function Gallery2() {
   }, [active]);
 
   useEffect(() => {
-    const handler = (e) => { if (e.key === "Escape") setActive(null); };
+    const handler = (e: KeyboardEvent) => { if (e.key === "Escape") setActive(null); };
     window.addEventListener("keydown", handler);
     return () => window.removeEventListener("keydown", handler);
   }, []);
 
-  const prev = () => setActive((a) => (a - 1 + IMAGES.length) % IMAGES.length);
-  const next = () => setActive((a) => (a + 1) % IMAGES.length);
+  const prev = () => setActive((index) => {
+    if (index === null) {
+      return IMAGES.length - 1;
+    }
+
+    return (index - 1 + IMAGES.length) % IMAGES.length;
+  });
+
+  const next = () => setActive((index) => {
+    if (index === null) {
+      return 0;
+    }
+
+    return (index + 1) % IMAGES.length;
+  });
 
   return (
     <>

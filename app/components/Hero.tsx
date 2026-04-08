@@ -2,24 +2,28 @@
 
 import { useEffect, useState } from "react";
 
+const HERO_IMAGES = [
+  "/header1.png",
+  "/header2.png",
+  "/header3.png",
+  "/header4.png",
+];
+
 export default function MetallbauMeyerHero() {
   const [mounted, setMounted] = useState(false);
   const [bgIndex, setBgIndex] = useState(0);
 
-  const images = [
-    "/header1.png",
-    "/header2.png",
-    "/header3.png",
-    "/header4.png",
-  ];
-
   useEffect(() => {
-    setMounted(true);
+    const frameId = window.requestAnimationFrame(() => {
+      setMounted(true);
+    });
+
+    return () => window.cancelAnimationFrame(frameId);
   }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setBgIndex((prev) => (prev + 1) % images.length);
+      setBgIndex((prev) => (prev + 1) % HERO_IMAGES.length);
     }, 5000);
 
     return () => clearInterval(interval);
@@ -39,7 +43,7 @@ export default function MetallbauMeyerHero() {
     <div className="relative min-h-screen w-full overflow-hidden bg-[#0d1117]">
 
       {/* ── Fullscreen background image ── */}
-      {images.map((img, i) => (
+      {HERO_IMAGES.map((img, i) => (
         <div
           key={img}
           className={`absolute inset-0 bg-cover bg-center scale-[1.03] transition-opacity duration-3000 saturate-150 ${
@@ -53,14 +57,14 @@ export default function MetallbauMeyerHero() {
       ))}
 
       {/* ── Gradient overlay: strong left, fading right ── */}
-      <div className="absolute inset-0 bg-gradient-to-r from-white via-white/30  to-transparent" />
-      <div className="absolute inset-0 bg-gradient-to-r from-white via-transparent  to-transparent" />
+      <div className="absolute inset-0 bg-linear-to-r from-white via-white/30  to-transparent" />
+      <div className="absolute inset-0 bg-linear-to-r from-white via-transparent  to-transparent" />
 
       {/* ── Navbar ── */}
-      <nav className="absolute top-0 inset-x-0 z-20 flex items-center justify-between gap-8 px-[5vw] h-[68px] bg-white/90 backdrop-blur-sm">
+      <nav className="absolute top-0 inset-x-0 z-20 flex h-17 items-center justify-between gap-8 bg-white/90 px-[5vw] backdrop-blur-sm">
         {/* Logo */}
         <div className="flex items-center gap-2.5">
-          <div className="w-[30px] h-[30px] bg-[#003d7c] rounded-[6px] flex items-center justify-center flex-shrink-0">
+          <div className="flex h-7.5 w-7.5 shrink-0 items-center justify-center rounded-md bg-[#003d7c]">
             <svg width="16" height="16" viewBox="0 0 20 20" fill="none">
               <rect x="2" y="10" width="4" height="8" fill="white" opacity="0.8" />
               <rect x="8" y="5" width="4" height="13" fill="white" opacity="0.9" />
@@ -98,7 +102,7 @@ export default function MetallbauMeyerHero() {
       <div className="relative z-10 flex flex-col justify-center min-h-screen px-[5vw] max-w-3xl">
 
         {/* Eyebrow */}
-        <div className={`${fadeUp("delay-[1250ms]")} mb-7`}>
+        <div className={`${fadeUp("delay-1250")} mb-7`}>
           <span className="inline-flex items-center gap-1.5 bg-[#003d7c]/10 text-[#003d7c] text-[0.72rem] font-medium tracking-[0.04em] px-3 py-1.5 rounded-full">
             <span className="w-1.5 h-1.5 rounded-full bg-[#003d7c]" />
             Metallbau &amp; Stahlkonstruktion · Osnabrück
@@ -119,17 +123,17 @@ export default function MetallbauMeyerHero() {
         <p
           className={`${fadeUp(
             "delay-1200"
-          )} text-gray-500 font-normal leading-relaxed mb-10 max-w-[400px]`}
+          )} mb-10 max-w-100 text-gray-500 font-normal leading-relaxed`}
           style={{ fontSize: "clamp(1rem, 1.8vw, 1.15rem)" }}
         >
           Wir realisieren anspruchsvolle Metallbauprojekte — von der Planung bis zur Montage. Qualität, die trägt.
         </p>
 
         {/* CTAs */}
-        <div className={`${fadeUp("delay-[1200ms]")} flex flex-wrap items-center gap-3 mb-12`}>
+        <div className={`${fadeUp("delay-1200")} mb-12 flex flex-wrap items-center gap-3`}>
           <a
             href="#"
-            className="inline-flex items-center gap-2 bg-[#003d7c] hover:bg-[#002d5e] active:-translate-y-0 hover:-translate-y-px text-white text-[0.88rem] font-medium px-7 py-3.5 rounded-lg no-underline transition-all duration-200 shadow-lg shadow-black/20"
+            className="inline-flex items-center gap-2 rounded-lg bg-[#003d7c] px-7 py-3.5 text-[0.88rem] font-medium text-white no-underline shadow-lg shadow-black/20 transition-all duration-200 hover:-translate-y-px hover:bg-[#002d5e] active:translate-y-0"
           >
             Projekt besprechen
             <svg width="15" height="15" viewBox="0 0 16 16" fill="none">
@@ -145,14 +149,14 @@ export default function MetallbauMeyerHero() {
         </div>
 
         {/* Checklist */}
-        <div className={`${fadeUp("delay-[1300ms]")} flex flex-col gap-2.5`}>
+        <div className={`${fadeUp("delay-1300")} flex flex-col gap-2.5`}>
           {[
             "Zertifiziert nach DIN EN 1090",
             "Über 25 Jahre Erfahrung im Metallbau",
             "Persönliche Beratung & feste Ansprechpartner",
           ].map((item) => (
             <div key={item} className="flex items-center gap-2.5 text-[0.84rem] text-gray-600 font-normal">
-              <div className="w-[18px] h-[18px] rounded-full bg-[#003d7c]/10 flex items-center justify-center flex-shrink-0">
+              <div className="flex h-4.5 w-4.5 shrink-0 items-center justify-center rounded-full bg-[#003d7c]/10">
                 <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
                   <path d="M2 5l2.5 2.5L8 3" stroke="#0061a5" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>

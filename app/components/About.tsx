@@ -22,7 +22,7 @@ const SEGMENTS = [
 ];
 
 function useInView(threshold = 0.15) {
-  const ref = useRef(null);
+  const ref = useRef<HTMLElement | null>(null);
   const [inView, setInView] = useState(false);
   useEffect(() => {
     const el = ref.current;
@@ -34,7 +34,7 @@ function useInView(threshold = 0.15) {
     observer.observe(el);
     return () => observer.disconnect();
   }, [threshold]);
-  return [ref, inView];
+  return [ref, inView] as const;
 }
 
 export default function About() {
@@ -88,7 +88,7 @@ export default function About() {
 
             {/* Left — title + audience */}
             <div className="flex flex-col gap-1.5">
-              <span className="text-[0.7rem] font-medium text-[#0061a5] uppercase tracking-[0.1em]">
+              <span className="text-[0.7rem] font-medium text-[#0061a5] uppercase tracking-widest">
                 {s.audience}
               </span>
               <h3
@@ -103,7 +103,7 @@ export default function About() {
                 {s.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="text-[0.65rem] font-medium text-[#0061a5] uppercase tracking-[0.08em] px-2.5 py-1 bg-[#003d7c]/[0.06] rounded-md"
+                    className="bg-[#003d7c]/6 px-2.5 py-1 text-[0.65rem] font-medium text-[#0061a5] uppercase tracking-[0.08em] rounded-md"
                   >
                     {tag}
                   </span>
@@ -121,7 +121,7 @@ export default function About() {
                   {s.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="text-[0.65rem] font-medium text-[#0061a5] uppercase tracking-[0.08em] px-2.5 py-1 bg-[#003d7c]/[0.06] rounded-md"
+                      className="bg-[#003d7c]/6 px-2.5 py-1 text-[0.65rem] font-medium text-[#0061a5] uppercase tracking-[0.08em] rounded-md"
                     >
                       {tag}
                     </span>

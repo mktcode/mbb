@@ -62,8 +62,21 @@ export default function Gallery() {
     return () => window.removeEventListener("keydown", handler);
   }, []);
 
-  const prev = () => setActive((a) => (a - 1 + IMAGES.length) % IMAGES.length);
-  const next = () => setActive((a) => (a + 1) % IMAGES.length);
+  const prev = () => setActive((index) => {
+    if (index === null) {
+      return IMAGES.length - 1;
+    }
+
+    return (index - 1 + IMAGES.length) % IMAGES.length;
+  });
+
+  const next = () => setActive((index) => {
+    if (index === null) {
+      return 0;
+    }
+
+    return (index + 1) % IMAGES.length;
+  });
 
   return (
     <>

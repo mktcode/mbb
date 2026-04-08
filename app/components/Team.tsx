@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 
 function useInView(threshold = 0.1) {
-  const ref = useRef(null);
+  const ref = useRef<HTMLElement | null>(null);
   const [inView, setInView] = useState(false);
   useEffect(() => {
     const el = ref.current;
@@ -15,7 +15,7 @@ function useInView(threshold = 0.1) {
     obs.observe(el);
     return () => obs.disconnect();
   }, [threshold]);
-  return [ref, inView];
+  return [ref, inView] as const;
 }
 
 const TEAM = [
@@ -66,7 +66,7 @@ export default function Team() {
 
   return (
     <section ref={ref} className="w-full bg-white">
-      <div className="max-w-screen-xl mx-auto px-[5vw] py-28">
+      <div className="mx-auto max-w-7xl px-[5vw] py-28">
 
         {/* ── Header ── */}
         <div
@@ -113,7 +113,7 @@ export default function Team() {
                 </div>
 
                 <p
-                  className="text-[0.65rem] font-medium uppercase tracking-[0.1em] mb-1.5"
+                  className="mb-1.5 text-[0.65rem] font-medium uppercase tracking-widest"
                   style={{ color: member.accent }}
                 >
                   {member.role}
@@ -145,7 +145,7 @@ export default function Team() {
               }}
             >
               <span
-                className="font-work-sans font-extrabold text-[2rem] leading-none tracking-tight flex-shrink-0 mt-0.5"
+                className="mt-0.5 shrink-0 font-work-sans text-[2rem] font-extrabold leading-none tracking-tight"
                 style={{ color: "#e5e7eb" }}
               >
                 {v.number}

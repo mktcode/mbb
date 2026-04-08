@@ -9,7 +9,7 @@ export default function MetallbauMeyerFooter() {
           {/* ── Left side: Branding & Tagline ── */}
           <div>
             <div className="flex items-center gap-2.5 mb-6">
-              <div className="w-[30px] h-[30px] bg-white/15 rounded-[6px] flex items-center justify-center flex-shrink-0">
+              <div className="flex h-7.5 w-7.5 shrink-0 items-center justify-center rounded-md bg-white/15">
                 <svg width="16" height="16" viewBox="0 0 20 20" fill="none">
                   <rect x="2" y="10" width="4" height="8" fill="white" opacity="0.8" />
                   <rect x="8" y="5" width="4" height="13" fill="white" opacity="0.9" />

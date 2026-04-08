@@ -1,9 +1,9 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { type CSSProperties, useEffect, useRef, useState } from "react";
 
 function useInView(threshold = 0.15) {
-  const ref = useRef(null);
+  const ref = useRef<HTMLElement | null>(null);
   const [inView, setInView] = useState(false);
   useEffect(() => {
     const el = ref.current;
@@ -15,7 +15,7 @@ function useInView(threshold = 0.15) {
     obs.observe(el);
     return () => obs.disconnect();
   }, [threshold]);
-  return [ref, inView];
+  return [ref, inView] as const;
 }
 
 const CAPABILITIES = [
@@ -63,7 +63,7 @@ const CAPABILITIES = [
 export default function Production() {
   const [ref, inView] = useInView(0.1);
 
-  const fade = (delay) => ({
+  const fade = (delay: string): CSSProperties => ({
     transition: `opacity 0.7s ease ${delay}, transform 0.7s ease ${delay}`,
     opacity: inView ? 1 : 0,
     transform: inView ? "translateY(0)" : "translateY(20px)",
@@ -95,7 +95,7 @@ export default function Production() {
         }}
       />
 
-      <div className="relative z-10 max-w-screen-xl mx-auto px-[5vw] py-28">
+      <div className="relative z-10 mx-auto max-w-7xl px-[5vw] py-28">
 
         {/* ── Top row: headline + cert badge ── */}
         <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-10 mb-20">
@@ -114,7 +114,7 @@ export default function Production() {
 
           {/* Cert badge */}
           <div
-            className="flex-shrink-0"
+            className="shrink-0"
             style={fade("150ms")}
           >
             <div

@@ -1,5 +1,6 @@
 "use client";
 
+import type { Map as LeafletMap } from "leaflet";
 import { useEffect, useRef } from "react";
 
 const ADDRESS = {
@@ -13,19 +14,20 @@ const ADDRESS = {
 };
 
 export default function ContactMap() {
-  const mapRef = useRef(null);
-  const instanceRef = useRef(null);
+  const mapRef = useRef<HTMLDivElement | null>(null);
+  const instanceRef = useRef<LeafletMap | null>(null);
 
   useEffect(() => {
     if (instanceRef.current) return;
     if (!mapRef.current) return;
+    const mapElement = mapRef.current;
 
     // Dynamically import Leaflet only on client
     import("leaflet").then((module) => {
       import("leaflet/dist/leaflet.css");
       const L = module.default;
 
-      const map = L.map(mapRef.current, {
+      const map = L.map(mapElement, {
       center: [ADDRESS.lat, ADDRESS.lng],
       zoom: 14,
       zoomControl: false,
@@ -101,7 +103,7 @@ export default function ContactMap() {
 
         {/* ── Contact card — bottom left ── */}
         <div
-          className="absolute bottom-8 left-8 z-[999] w-72"
+          className="absolute bottom-8 left-8 z-999 w-72"
           style={{ pointerEvents: "all" }}
         >
           <div
@@ -114,7 +116,7 @@ export default function ContactMap() {
               style={{ borderBottom: "1px solid #f3f4f6" }}
             >
               <div
-                className="w-8 h-8 flex items-center justify-center flex-shrink-0"
+                className="flex h-8 w-8 shrink-0 items-center justify-center"
                 style={{ background: "#003d7c" }}
               >
                 <svg width="14" height="14" viewBox="0 0 20 20" fill="none">
@@ -135,7 +137,7 @@ export default function ContactMap() {
 
             {/* Address */}
             <div className="flex gap-3 items-start">
-              <div className="flex-shrink-0 mt-0.5">
+              <div className="mt-0.5 shrink-0">
                 <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
                   <path
                     d="M8 1C5.79 1 4 2.79 4 5c0 3.25 4 9 4 9s4-5.75 4-9c0-2.21-1.79-4-4-4z"
@@ -157,7 +159,7 @@ export default function ContactMap() {
               href={`tel:${ADDRESS.phone.replace(/\s/g, "")}`}
               className="flex gap-3 items-center no-underline group/phone"
             >
-              <div className="flex-shrink-0">
+              <div className="shrink-0">
                 <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
                   <path
                     d="M2 3.5A1.5 1.5 0 013.5 2h.878c.464 0 .86.316.974.766l.544 2.176a1 1 0 01-.29.997L4.5 7c.667 1.333 2.167 2.833 3.5 3.5l1.061-1.106a1 1 0 01.997-.29l2.176.544c.45.114.766.51.766.974V12a1.5 1.5 0 01-1.5 1.5C5.648 13.5 2 9.852 2 5.5v-2z"
@@ -175,7 +177,7 @@ export default function ContactMap() {
               href={`mailto:${ADDRESS.email}`}
               className="flex gap-3 items-center no-underline group/email"
             >
-              <div className="flex-shrink-0">
+              <div className="shrink-0">
                 <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
                   <rect x="1" y="3" width="14" height="10" rx="1.5" stroke="#003d7c" strokeWidth="1.4" />
                   <path d="M1 4l7 5 7-5" stroke="#003d7c" strokeWidth="1.4" strokeLinecap="round" />
