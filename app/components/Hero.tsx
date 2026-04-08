@@ -42,7 +42,7 @@ export default function MetallbauMeyerHero() {
       {images.map((img, i) => (
         <div
           key={img}
-          className={`absolute inset-0 bg-cover bg-center scale-[1.03] transition-opacity duration-1000 saturate-150 ${
+          className={`absolute inset-0 bg-cover bg-center scale-[1.03] transition-opacity duration-3000 saturate-150 ${
             i === bgIndex ? "opacity-100" : "opacity-0"
           }`}
           style={{
@@ -57,7 +57,7 @@ export default function MetallbauMeyerHero() {
       <div className="absolute inset-0 bg-gradient-to-r from-white via-transparent  to-transparent" />
 
       {/* ── Navbar ── */}
-      <nav className="absolute top-0 inset-x-0 z-20 flex items-center justify-between px-[5vw] h-[68px] bg-white/80 backdrop-blur-sm">
+      <nav className="absolute top-0 inset-x-0 z-20 flex items-center justify-between gap-8 px-[5vw] h-[68px] bg-white/80 backdrop-blur-sm">
         {/* Logo */}
         <div className="flex items-center gap-2.5">
           <div className="w-[30px] h-[30px] bg-[#003d7c] rounded-[6px] flex items-center justify-center flex-shrink-0">
@@ -73,7 +73,7 @@ export default function MetallbauMeyerHero() {
         </div>
 
         {/* Links */}
-        <div className="hidden md:flex gap-8 items-center">
+        <div className="hidden md:flex gap-8 items-center ml-auto">
           {["Leistungen", "Projekte", "Über uns"].map((l) => (
             <a
               key={l}
