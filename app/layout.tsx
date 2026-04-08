@@ -4,11 +4,11 @@ import "./globals.css";
 import Hero from "./components/Hero";
 import StatsBar from "./components/StatsBar";
 import About from "./components/About";
-import Gallery from "./components/Gallery";
 import Production from "./components/Production";
 import Team from "./components/Team";
 import ContactMap from "./components/ContactMap";
 import Footer from "./components/Footer";
+import Gallery2 from "./components/Gallery2";
 
 const workSans = Work_Sans({
   variable: "--font-work-sans",
@@ -44,7 +44,8 @@ export default function RootLayout({
         <Hero />
         <StatsBar />
         <About />
-        <Gallery />
+        {/* <Gallery /> */}
+        <Gallery2 />
         <Production />
         <Team />
         <ContactMap />

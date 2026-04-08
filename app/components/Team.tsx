@@ -91,11 +91,11 @@ export default function Team() {
         </div>
 
         {/* ── Team grid ── */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-gray-100 mb-px">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
           {TEAM.map((member, i) => (
             <div
               key={member.name}
-              className="bg-white group"
+              className="bg-white group border-r border-gray-100 last:border-0"
               style={fade(`${i * 80 + 80}ms`)}
             >
               {/* Avatar */}
@@ -125,21 +125,13 @@ export default function Team() {
                   {member.bio}
                 </p>
               </div>
-
-              {/* Bottom accent line — grows on hover */}
-              <div className="mx-8 mb-8 h-px bg-gray-100 overflow-hidden">
-                <div
-                  className="h-full w-0 group-hover:w-full transition-all duration-500"
-                  style={{ background: member.accent }}
-                />
-              </div>
             </div>
           ))}
         </div>
 
         {/* ── Values row ── */}
         <div
-          className="grid grid-cols-1 md:grid-cols-3 gap-px bg-gray-100 mt-px"
+          className="grid grid-cols-1 md:grid-cols-3 gap-px bg-gray-100 mt-12"
           style={fade("500ms")}
         >
           {VALUES.map((v, i) => (

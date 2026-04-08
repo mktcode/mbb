@@ -38,7 +38,7 @@ export default function MetallbauMeyerHero() {
       <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-white/60 to-transparent" />
 
       {/* ── Navbar ── */}
-      <nav className="absolute top-0 inset-x-0 z-20 flex items-center justify-between px-[5vw] h-[68px] bg-white/60 backdrop-blur-sm rounded-b-lg">
+      <nav className="absolute top-0 inset-x-0 z-20 flex items-center justify-between px-[5vw] h-[68px] bg-white/60 backdrop-blur-sm">
         {/* Logo */}
         <div className="flex items-center gap-2.5">
           <div className="w-[30px] h-[30px] bg-[#003d7c] rounded-[6px] flex items-center justify-center flex-shrink-0">
