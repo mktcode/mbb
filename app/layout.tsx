@@ -30,6 +30,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Metallbau C. Meyer | Belm",
   description: "Metallbau Meyer - Ihr Partner für Metallbau und Stahlkonstruktionen in Osnabrück",
+  robots: "noindex, nofollow",
 };
 
 export default function RootLayout({

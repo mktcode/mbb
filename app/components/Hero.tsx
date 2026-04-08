@@ -65,7 +65,7 @@ export default function MetallbauMeyerHero() {
       <nav className="absolute top-0 inset-x-0 z-20 flex h-19 items-center justify-between gap-8 bg-white/90 px-[5vw] backdrop-blur-sm">
         {/* Logo */}
         <div className="flex items-center">
-          <Image src="/logo.png" alt="M" width={140} height={68} />
+          <Image src="/logo.png" alt="M" width={140} height={68} loading="eager" />
         </div>
 
         {/* Links */}
