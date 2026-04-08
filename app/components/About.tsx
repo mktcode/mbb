@@ -33,7 +33,7 @@ function useInView(threshold = 0.15) {
     );
     observer.observe(el);
     return () => observer.disconnect();
-  }, []);
+  }, [threshold]);
   return [ref, inView];
 }
 

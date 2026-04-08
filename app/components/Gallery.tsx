@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 
 const IMAGES = [
   {
@@ -42,7 +43,7 @@ const IMAGES = [
 ];
 
 export default function Gallery() {
-  const [active, setActive] = useState(null);
+  const [active, setActive] = useState<number | null>(null);
 
   // Lock body scroll when modal is open
   useEffect(() => {
@@ -56,7 +57,7 @@ export default function Gallery() {
 
   // Close on Escape
   useEffect(() => {
-    const handler = (e) => { if (e.key === "Escape") setActive(null); };
+    const handler = (e: KeyboardEvent) => { if (e.key === "Escape") setActive(null); };
     window.addEventListener("keydown", handler);
     return () => window.removeEventListener("keydown", handler);
   }, []);
@@ -123,7 +124,7 @@ export default function Gallery() {
             style={{ height: 400 }}
             onClick={() => setActive(i)}
           >
-            <img src={img.src} alt={img.title} />
+            <Image src={img.src} alt={img.title} />
           </div>
         ))}
       </div>
@@ -141,7 +142,7 @@ export default function Gallery() {
           >
             {/* Image + overlay */}
             <div className="modal-img relative w-full max-w-5xl" style={{ maxHeight: "90vh" }}>
-              <img
+              <Image
                 src={IMAGES[active].src}
                 alt={IMAGES[active].title}
                 className="w-full object-cover"

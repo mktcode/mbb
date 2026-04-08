@@ -14,7 +14,7 @@ function useInView(threshold = 0.1) {
     );
     obs.observe(el);
     return () => obs.disconnect();
-  }, []);
+  }, [threshold]);
   return [ref, inView];
 }
 
@@ -58,7 +58,7 @@ const VALUES = [
 export default function Team() {
   const [ref, inView] = useInView(0.08);
 
-  const fade = (delay) => ({
+  const fade = (delay: string) => ({
     transition: `opacity 0.65s ease ${delay}, transform 0.65s ease ${delay}`,
     opacity: inView ? 1 : 0,
     transform: inView ? "translateY(0)" : "translateY(20px)",

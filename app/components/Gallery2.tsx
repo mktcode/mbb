@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 
 const IMAGES = [
   {
@@ -156,7 +157,7 @@ export default function Gallery2() {
             style={{ height: 400 }}
             onClick={() => setActive(i)}
           >
-            <img src={img.src} alt={img.title} />
+            <Image src={img.src} alt={img.title} />
           </div>
         ))}
       </div>
@@ -171,7 +172,7 @@ export default function Gallery2() {
             onClick={(e) => e.stopPropagation()}
           >
             <div className="modal-img relative w-full max-w-5xl" style={{ maxHeight: "90vh" }}>
-              <img
+              <Image
                 src={IMAGES[active].src}
                 alt={IMAGES[active].title}
                 className="w-full object-cover"
