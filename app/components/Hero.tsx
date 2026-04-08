@@ -79,7 +79,7 @@ export default function MetallbauMeyerHero() {
       <div className="relative z-10 flex flex-col justify-center min-h-screen px-[5vw] max-w-3xl">
 
         {/* Eyebrow */}
-        <div className={`${fadeUp("delay-500")} mb-7`}>
+        <div className={`${fadeUp("delay-[1250ms]")} mb-7`}>
           <span className="inline-flex items-center gap-1.5 bg-[#003d7c]/10 text-[#003d7c] text-[0.72rem] font-medium tracking-[0.04em] px-3 py-1.5 rounded-full">
             <span className="w-1.5 h-1.5 rounded-full bg-[#003d7c]" />
             Metallbau &amp; Stahlkonstruktion · Osnabrück
@@ -91,15 +91,15 @@ export default function MetallbauMeyerHero() {
           className={`font-work-sans font-extrabold leading-[1.04] tracking-[-0.025em] text-[#0d1117] mb-6`}
           style={{ fontSize: "clamp(3rem, 6vw, 5.4rem)" }}
         >
-          <span className={`${fadeRight("delay-200")} block`}>Persönlich.</span>
-          <span className={`${fadeRight("delay-300")} block`}>Kompetent.</span>
-          <span className={`${fadeRight("delay-400")} block text-[#0061a5] italic`}>Sicher.</span>
+          <span className={`${fadeRight("delay-100")} block`}>Persönlich.</span>
+          <span className={`${fadeRight("delay-200")} block`}>Kompetent.</span>
+          <span className={`${fadeRight("delay-300")} block text-[#0061a5] italic`}>Sicher.</span>
         </h1>
 
         {/* Sub */}
         <p
           className={`${fadeUp(
-            "delay-600"
+            "delay-1200"
           )} text-gray-500 font-normal leading-relaxed mb-10 max-w-[400px]`}
           style={{ fontSize: "clamp(1rem, 1.8vw, 1.15rem)" }}
         >
@@ -107,10 +107,10 @@ export default function MetallbauMeyerHero() {
         </p>
 
         {/* CTAs */}
-        <div className={`${fadeUp("delay-[700ms]")} flex flex-wrap items-center gap-3 mb-12`}>
+        <div className={`${fadeUp("delay-[1200ms]")} flex flex-wrap items-center gap-3 mb-12`}>
           <a
             href="#"
-            className="inline-flex items-center gap-2 bg-[#003d7c] hover:bg-[#002d5e] active:-translate-y-0 hover:-translate-y-px text-white text-[0.88rem] font-medium px-7 py-3.5 rounded-lg no-underline transition-all duration-200"
+            className="inline-flex items-center gap-2 bg-[#003d7c] hover:bg-[#002d5e] active:-translate-y-0 hover:-translate-y-px text-white text-[0.88rem] font-medium px-7 py-3.5 rounded-lg no-underline transition-all duration-200 shadow-lg shadow-black/20"
           >
             Projekt besprechen
             <svg width="15" height="15" viewBox="0 0 16 16" fill="none">
@@ -119,14 +119,14 @@ export default function MetallbauMeyerHero() {
           </a>
           <a
             href="#"
-            className="inline-flex items-center gap-2 bg-white/60 hover:bg-white/80 text-gray-700 text-[0.88rem] font-medium px-7 py-3.5 rounded-lg no-underline backdrop-blur-sm transition-all duration-200"
+            className="inline-flex items-center gap-2 bg-white/60 hover:bg-white/80 text-gray-700 text-[0.88rem] font-medium px-7 py-3.5 rounded-lg no-underline backdrop-blur-sm transition-all duration-200 shadow-lg shadow-black/5"
           >
             Referenzen ansehen
           </a>
         </div>
 
         {/* Checklist */}
-        <div className={`${fadeUp("delay-[820ms]")} flex flex-col gap-2.5`}>
+        <div className={`${fadeUp("delay-[1300ms]")} flex flex-col gap-2.5`}>
           {[
             "Zertifiziert nach DIN EN 1090",
             "Über 25 Jahre Erfahrung im Metallbau",

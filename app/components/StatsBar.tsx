@@ -88,7 +88,7 @@ export default function StatsBar() {
 
         {/* Badges */}
         <div
-          className="flex items-center gap-3 transition-all duration-700"
+          className="flex md:flex-col gap-3 transition-all duration-700"
           style={{
             transitionDelay: "350ms",
             opacity: started ? 1 : 0,
@@ -98,7 +98,7 @@ export default function StatsBar() {
           {BADGES.map((b) => (
             <span
               key={b}
-              className="text-[0.7rem] font-medium text-gray-400 uppercase tracking-[0.08em] px-3.5 py-2 rounded-md bg-gray-50"
+              className="text-sm text-center font-medium text-gray-400 uppercase tracking-[0.08em] px-3.5 py-2 rounded-md bg-gray-50"
             >
               {b}
             </span>
